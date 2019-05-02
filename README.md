@@ -1,5 +1,7 @@
 # todoapp-vuejs
 
+Demo: https://todoing-vue.herokuapp.com
+
 ## Project setup
 ```
 npm install
