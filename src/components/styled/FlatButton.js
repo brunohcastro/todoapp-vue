@@ -1,6 +1,8 @@
 import styled from 'vue-styled-components';
 
-export default styled('b-button')`
+const btnProps = { variant: String };
+
+export default styled('b-button', btnProps)`
   border-radius: 0 !important;
   border: none !important;
   height: 70px;

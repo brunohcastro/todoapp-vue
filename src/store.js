@@ -101,16 +101,22 @@ export default new Vuex.Store({
       commit('LOAD_TODOS', data);
     },
 
-    async filterCompleted({ commit }) {
+    async toggleCompletedFilter({ commit, state }) {
+      if (state.filter === 'completed') {
+        commit('SET_FILTER', '');
+        return;
+      }
+
       commit('SET_FILTER', 'completed');
     },
 
-    async filterPending({ commit }) {
-      commit('SET_FILTER', 'pending');
-    },
+    async togglePendingFilter({ commit, state }) {
+      if (state.filter === 'pending') {
+        commit('SET_FILTER', '');
+        return;
+      }
 
-    async clearFilter({ commit }) {
-      commit('SET_FILTER', '');
+      commit('SET_FILTER', 'pending');
     },
 
     async save({ commit }, todo) {
