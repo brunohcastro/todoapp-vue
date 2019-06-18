@@ -2,13 +2,13 @@
   <form @submit.prevent="create()" class="form-wrapper">
     <b-input-group>
       <b-input-group-prepend>
-        <flat-button variant="default" @click="toggleAllStatus">
-          <span :style="{color: hasPendingColor}" class="material-icons">done_all</span>
+        <flat-button data-cy="toggle-all" variant="default" @click="toggleAllStatus">
+          <span :style="{ color: hasPendingColor }" class="material-icons">done_all</span>
         </flat-button>
       </b-input-group-prepend>
-      <input v-model="todo" @keydown="cancelCreateOnEsc($event)" class="todo-input">
+      <input data-cy="todo-input" v-model="todo" @keydown="cancelCreateOnEsc($event)" class="todo-input" />
       <b-input-group-append>
-        <flat-button type="submit" variant="primary" style="width: 60px">
+        <flat-button data-cy="add-todo" type="submit" variant="primary" style="width: 60px">
           <span class="material-icons">add</span>
         </flat-button>
       </b-input-group-append>
@@ -29,7 +29,7 @@ export default {
   computed: {
     hasPendingColor() {
       const allCompleted =
-        this.$store.state.viewModel.todoCount != 0 &&
+        this.$store.state.viewModel.todoCount !== 0 &&
         this.$store.state.viewModel.todoCount === this.$store.state.viewModel.completedTodosCount;
 
       return allCompleted ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.2)';
@@ -38,7 +38,7 @@ export default {
   methods: {
     ...mapActions(['toggleAllStatus', 'save']),
     create() {
-      if (this.todo == '') {
+      if (this.todo === '') {
         return;
       }
 

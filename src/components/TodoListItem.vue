@@ -21,6 +21,7 @@
     <template v-else>
       <toggle-status-wrapper>
         <p-check
+          :data-cy="'todo-state-' + todo.id"
           name="check"
           color="success"
           class="p-svg p-curve"
@@ -36,10 +37,11 @@
         </p-check>
       </toggle-status-wrapper>
       <todo-content
+        :data-cy="'todo-content-' + todo.id"
         :completed="todo.completed"
         @dblclick.native="edit(todo.id)"
       >{{ todo.description }}</todo-content>
-      <delete-button variant="danger" @click="deleteTodo(todo.id)">
+      <delete-button :data-cy="'remove-todo-' + todo.id" variant="danger" @click="deleteTodo(todo.id)">
         <span class="material-icons">delete</span>
       </delete-button>
     </template>
