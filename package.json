@@ -15,7 +15,7 @@
     "bootstrap": "^4.3.1",
     "bootstrap-vue": "^2.0.0-rc.19",
     "core-js": "^2.6.5",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "pretty-checkbox-vue": "^1.1.9",
     "vue": "^2.6.10",
     "vue-styled-components": "^1.4.4",
